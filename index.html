@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Codex VIBE 코딩 실습</title>
+    <meta
+      name="description"
+      content="Codex VIBE 코딩 실습을 위한 캡처 기반 강의 자료"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#slide-0" aria-label="처음으로 이동">
+        <span class="brand-mark">AI</span>
+        <span>Codex VIBE</span>
+      </a>
+      <div class="progress-wrap" aria-hidden="true">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+      <nav class="top-actions" aria-label="자료 링크">
+        <a href="https://www.youtube.com/@AI쭌" target="_blank" rel="noreferrer">YouTube</a>
+        <a href="https://portpolio-at0.pages.dev/" target="_blank" rel="noreferrer">Portfolio</a>
+      </nav>
+    </header>
+
+    <main id="deck" class="deck" aria-live="polite"></main>
+
+    <footer class="controls" aria-label="슬라이드 이동">
+      <button id="prevBtn" type="button" aria-label="이전 슬라이드">
+        <span aria-hidden="true">←</span>
+      </button>
+      <span id="counter" class="counter">1 / 13</span>
+      <button id="nextBtn" type="button" aria-label="다음 슬라이드">
+        <span aria-hidden="true">→</span>
+      </button>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
