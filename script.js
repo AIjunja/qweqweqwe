@@ -68,8 +68,9 @@ const img = {
 const slides = [
   {
     theme: "dark",
+    cover: true,
     kicker: "VIBE 코딩 실습",
-    title: "코덱스 왜 안 쓰세요?",
+    title: "코덱스\n왜 안 쓰세요?",
     body: "ChatGPT 유료 구독 중이면, 오늘부터 프로젝트 속도가 달라집니다.",
     definition: ["오늘 목표", "설명보다 실습. 검색보다 제작. 완성보다 직접 수정하는 감각."],
     mediaMode: "single",
@@ -276,13 +277,20 @@ function createImageCard(item) {
 function createSlide(slide, index) {
   const section = document.createElement("section");
   section.id = `slide-${index}`;
-  section.className = `slide ${slide.theme === "dark" ? "dark" : ""}`;
+  section.className = [
+    "slide",
+    slide.theme === "dark" ? "dark" : "",
+    slide.cover ? "cover" : "",
+    index === 0 ? "active" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   const copy = document.createElement("div");
   copy.className = "copy-panel";
   copy.innerHTML = `
     <p class="kicker">${escapeHtml(slide.kicker)}</p>
-    <h1 class="slide-title">${escapeHtml(slide.title)}</h1>
+    <h1 class="slide-title">${formatTitle(slide.title)}</h1>
     <p class="body-copy">${escapeHtml(slide.body || "")}</p>
   `;
 
@@ -363,53 +371,52 @@ function escapeHtml(value) {
     .replaceAll("'", "&#039;");
 }
 
+function formatTitle(value) {
+  return escapeHtml(value).replaceAll("\n", "<br>");
+}
+
 const deck = document.getElementById("deck");
 const progressBar = document.getElementById("progressBar");
 const counter = document.getElementById("counter");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
+let currentSlide = 0;
 
 slides.forEach((slide, index) => deck.append(createSlide(slide, index)));
 
-function currentIndex() {
-  const scrollTop = deck.scrollTop;
-  const height = deck.clientHeight || window.innerHeight;
-  return Math.min(slides.length - 1, Math.max(0, Math.round(scrollTop / height)));
-}
-
 function updateProgress() {
-  const index = currentIndex();
-  counter.textContent = `${index + 1} / ${slides.length}`;
-  progressBar.style.width = `${((index + 1) / slides.length) * 100}%`;
-  prevBtn.disabled = index === 0;
-  nextBtn.disabled = index === slides.length - 1;
+  counter.textContent = `${currentSlide + 1} / ${slides.length}`;
+  progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+  prevBtn.disabled = currentSlide === 0;
+  nextBtn.disabled = currentSlide === slides.length - 1;
 }
 
 function goToSlide(index) {
-  const nextIndex = Math.min(slides.length - 1, Math.max(0, index));
-  deck.scrollTo({ top: nextIndex * deck.clientHeight, behavior: "smooth" });
+  currentSlide = Math.min(slides.length - 1, Math.max(0, index));
+  document.querySelectorAll(".slide").forEach((slide, slideIndex) => {
+    slide.classList.toggle("active", slideIndex === currentSlide);
+  });
+  updateProgress();
 }
 
-prevBtn.addEventListener("click", () => goToSlide(currentIndex() - 1));
-nextBtn.addEventListener("click", () => goToSlide(currentIndex() + 1));
-deck.addEventListener("scroll", () => window.requestAnimationFrame(updateProgress), { passive: true });
+prevBtn.addEventListener("click", () => goToSlide(currentSlide - 1));
+nextBtn.addEventListener("click", () => goToSlide(currentSlide + 1));
 
-window.addEventListener("keydown", (event) => {
-  if (event.key === "ArrowRight" || event.key === "PageDown" || event.key === " ") {
+window.addEventListener(
+  "wheel",
+  (event) => {
     event.preventDefault();
-    goToSlide(currentIndex() + 1);
-  }
-  if (event.key === "ArrowLeft" || event.key === "PageUp") {
+  },
+  { passive: false },
+);
+
+window.addEventListener(
+  "touchmove",
+  (event) => {
     event.preventDefault();
-    goToSlide(currentIndex() - 1);
-  }
-  if (event.key === "Home") {
-    goToSlide(0);
-  }
-  if (event.key === "End") {
-    goToSlide(slides.length - 1);
-  }
-});
+  },
+  { passive: false },
+);
 
 window.addEventListener("resize", updateProgress);
 updateProgress();
