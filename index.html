@@ -1,42 +1,201 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Codex VIBE 코딩 실습</title>
     <meta
       name="description"
-      content="Codex VIBE 코딩 실습을 위한 캡처 기반 강의 자료"
+      content="Dark Velocity — an unofficial Tesla Roadster cinematic landing page concept."
+    />
+    <meta name="theme-color" content="#050505" />
+    <title>Dark Velocity — Roadster Concept</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Manrope:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <header class="topbar">
-      <div class="brand" aria-label="Codex VIBE">
-        <span class="brand-mark">AI</span>
-        <span>Codex VIBE</span>
-      </div>
-      <div class="progress-wrap" aria-hidden="true">
-        <div class="progress-bar" id="progressBar"></div>
-      </div>
-      <nav class="top-actions" aria-label="자료 링크">
-        <a href="https://www.youtube.com/@AI쭌" target="_blank" rel="noreferrer">YouTube</a>
-        <a href="https://portpolio-at0.pages.dev/" target="_blank" rel="noreferrer">Portfolio</a>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="preloader" aria-hidden="true">
+      <div class="preloader__mark">DV<span>01</span></div>
+      <div class="preloader__track"><i></i></div>
+      <div class="preloader__value">000</div>
+    </div>
+
+    <div class="cursor" aria-hidden="true">
+      <span class="cursor__dot"></span>
+      <span class="cursor__ring"><i>VIEW</i></span>
+    </div>
+    <div class="scroll-progress" aria-hidden="true"><i></i></div>
+
+    <header class="site-header">
+      <a class="brand magnetic" href="#top" aria-label="Dark Velocity home">
+        <span class="brand__glyph">V</span>
+        <span class="brand__name">DARK VELOCITY</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="#performance">Performance</a>
+        <a href="#aerodynamics">Aerodynamics</a>
+        <a href="#cockpit">Cockpit</a>
       </nav>
+      <a class="header-cta magnetic" href="#launch">
+        <span>Enter velocity</span><i aria-hidden="true">↗</i>
+      </a>
     </header>
 
-    <main id="deck" class="deck" aria-live="polite"></main>
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero__media" data-cursor="PLAY">
+          <video
+            id="hero-video"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="./assets/images/roadster-hero-front.png"
+          >
+            <source src="./assets/video/roadster-awakening-hero.web.mp4" type="video/mp4" />
+          </video>
+          <div class="hero__veil"></div>
+          <div class="film-grain"></div>
+        </div>
 
-    <footer class="controls" aria-label="슬라이드 이동">
-      <button id="prevBtn" type="button" aria-label="이전 슬라이드">
-        <span aria-hidden="true">←</span>
-      </button>
-      <span id="counter" class="counter">1 / 13</span>
-      <button id="nextBtn" type="button" aria-label="다음 슬라이드">
-        <span aria-hidden="true">→</span>
-      </button>
-    </footer>
+        <div class="hero__content">
+          <p class="hero__eyebrow"><span>Roadster / Concept 01</span><span>Electric grand tourer</span></p>
+          <h1 id="hero-title">
+            <span class="hero__line"><i>THE LIMIT,</i></span>
+            <span class="hero__line hero__line--accent"><i>LEFT BEHIND.</i></span>
+          </h1>
+          <div class="hero__footer">
+            <p>A cinematic study in speed, silence, and controlled violence.</p>
+            <div class="hero__coordinates"><span>37.2431° N</span><span>115.7930° W</span></div>
+          </div>
+        </div>
 
+        <div class="hero__index" aria-hidden="true">
+          <span>01</span><i></i><span>05</span>
+        </div>
+        <a class="scroll-cue" href="#manifesto"><span>Scroll to ignite</span><i></i></a>
+      </section>
+
+      <section class="manifesto section" id="manifesto">
+        <div class="section-kicker reveal"><span>01</span><p>The philosophy</p></div>
+        <div class="manifesto__copy">
+          <p class="reveal">SPEED ISN'T NOISE.</p>
+          <p class="reveal muted">IT'S THE ABSENCE</p>
+          <p class="reveal indent">OF HESITATION.</p>
+        </div>
+        <div class="manifesto__aside reveal">
+          <p>Every surface exists to move air. Every millisecond exists to disappear.</p>
+          <span>UNOFFICIAL DESIGN STUDY / 2026</span>
+        </div>
+        <div class="marquee" aria-hidden="true">
+          <div>
+            <span>INSTANT TORQUE</span><i>◆</i><span>ZERO HESITATION</span><i>◆</i><span>SILENT FORCE</span><i>◆</i>
+            <span>INSTANT TORQUE</span><i>◆</i><span>ZERO HESITATION</span><i>◆</i><span>SILENT FORCE</span><i>◆</i>
+          </div>
+        </div>
+      </section>
+
+      <section class="performance section" id="performance" aria-labelledby="performance-title">
+        <div class="section-kicker reveal"><span>02</span><p>Performance targets</p></div>
+        <div class="performance__head">
+          <h2 id="performance-title" class="reveal">TIME BENDS<br /><em>BEFORE YOU DO.</em></h2>
+          <p class="reveal">Concept targets visualized for this independent design demonstration.</p>
+        </div>
+
+        <div class="stat-grid">
+          <article class="stat reveal">
+            <span class="stat__label">0–100 KM/H</span>
+            <p><strong data-count="2.1" data-decimals="1">0.0</strong><small>S</small></p>
+            <i class="stat__line"></i>
+          </article>
+          <article class="stat reveal">
+            <span class="stat__label">TOP SPEED</span>
+            <p><strong data-count="400">000</strong><small>+ KM/H</small></p>
+            <i class="stat__line"></i>
+          </article>
+          <article class="stat reveal">
+            <span class="stat__label">RANGE TARGET</span>
+            <p><strong data-count="1000">0000</strong><small>KM</small></p>
+            <i class="stat__line"></i>
+          </article>
+        </div>
+
+        <div class="performance__meter reveal" aria-hidden="true">
+          <div class="performance__meter-track"><i></i></div>
+          <span>0</span><span>100</span><span>200</span><span>300</span><span>400+</span>
+        </div>
+      </section>
+
+      <section class="aero" id="aerodynamics" aria-labelledby="aero-title">
+        <div class="aero__stage">
+          <div class="aero__media" data-cursor="DRAG">
+            <img src="./assets/images/roadster-side-aero.png" alt="Red Roadster side profile in a dark studio" />
+            <svg class="airflow" viewBox="0 0 1600 900" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M-80 345 C210 255 430 245 650 277 C905 315 1110 232 1680 280" />
+              <path d="M-80 408 C260 330 478 334 688 353 C980 380 1180 313 1680 342" />
+              <path d="M-80 555 C250 615 482 603 700 570 C1030 520 1280 590 1680 550" />
+              <path d="M-80 620 C280 685 520 665 755 615 C1060 550 1270 660 1680 620" />
+            </svg>
+            <div class="aero__scan" aria-hidden="true"></div>
+          </div>
+          <div class="aero__copy">
+            <div class="section-kicker"><span>03</span><p>Air, weaponized</p></div>
+            <h2 id="aero-title">SHAPED BY<br /><em>WHAT YOU<br />CAN'T SEE.</em></h2>
+            <p>Low pressure. Clean separation. A silhouette drawn in the language of airflow.</p>
+            <div class="aero__legend"><span><i></i>Laminar flow</span><span><i></i>Pressure release</span></div>
+          </div>
+          <div class="aero__telemetry" aria-hidden="true">
+            <span>CFD / LIVE</span><span>DRAG COEFFICIENT</span><strong>0.00<i>CONCEPT</i></strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="cockpit section" id="cockpit" aria-labelledby="cockpit-title">
+        <div class="section-kicker reveal"><span>04</span><p>The cockpit</p></div>
+        <div class="cockpit__head">
+          <h2 id="cockpit-title" class="reveal">THE WORLD,<br /><em>BEHIND GLASS.</em></h2>
+          <p class="reveal">Four seats. One uninterrupted horizon. Nothing between intention and acceleration.</p>
+        </div>
+        <figure class="cockpit__frame reveal" data-cursor="OPEN">
+          <img src="./assets/images/roadster-interior.png" alt="Minimal Roadster cockpit with glass roof and red ambient lighting" />
+          <figcaption><span>GLASS CANOPY / 180°</span><span>HUMAN–MACHINE INTERFACE</span></figcaption>
+        </figure>
+        <div class="cockpit__details">
+          <article class="reveal"><span>01</span><h3>Panoramic canopy</h3><p>A continuous field of view from road to sky.</p></article>
+          <article class="reveal"><span>02</span><h3>Driver first</h3><p>Information appears only when it matters.</p></article>
+          <article class="reveal"><span>03</span><h3>Four-seat geometry</h3><p>Grand touring space without visual weight.</p></article>
+        </div>
+      </section>
+
+      <section class="launch" id="launch" aria-labelledby="launch-title">
+        <div class="launch__media">
+          <img src="./assets/images/roadster-rear-launch.png" alt="Red Roadster accelerating into a dark wet tunnel" />
+          <div class="launch__veil"></div>
+        </div>
+        <div class="launch__content">
+          <div class="section-kicker"><span>05</span><p>Departure protocol</p></div>
+          <h2 id="launch-title"><span>THE FUTURE</span><br /><em>DOESN'T WAIT.</em></h2>
+          <a class="launch__button magnetic" href="#top"><span>Restart the experience</span><i>↗</i></a>
+        </div>
+        <footer class="site-footer">
+          <span>DARK VELOCITY © 2026</span>
+          <p>Independent concept. Not affiliated with or endorsed by Tesla, Inc.</p>
+          <span>FILM / FORM / FORCE</span>
+        </footer>
+      </section>
+    </main>
+
+    <noscript><style>.preloader{display:none}.reveal{opacity:1!important;transform:none!important}</style></noscript>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
     <script src="./script.js"></script>
   </body>
 </html>
